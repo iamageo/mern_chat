@@ -5,9 +5,9 @@ const jwt = require('jwt-then')
 
 exports.register = async(req, res) => {
     const {name, email, password} = req.body;
-    const emailRegex = /@gmail.com|@yahoo.com|@hotmail.com|@outlook.com|@live.com/
+    const emailRegex =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if(!emailRegex.test(email)) throw "Email is not supported from your domain";
+    if(emailRegex.test(email)) throw "Email is not supported from your domain";
     if(password < 5) throw "Password must be alteadt 5 characters long."
 
 

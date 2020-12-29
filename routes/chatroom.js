@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const {catchErrors} = require('../handlers/errorHandler')
-const userController = require('../controllers/userController')
+const chatRoomController = require('../controllers/chatRoomController')
+const auth = require('../middlewares/auth')
 
-router.post('/login', catchErrors(userController.login))
-router.post('/register', catchErrors(userController.register))
-
+router.post('/', auth,  catchErrors(chatRoomController.createChatRoom))
 
 module.exports = router;
