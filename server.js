@@ -20,9 +20,9 @@ require('./models/User');
 require('./models/ChatRoom');
 require('./models/Message');
 
-const app = require('./app')
+const app = require('./app');
 
-app.listen(8000, () => {s
+app.listen(8000, () => {
     console.log("------------------------------")
     console.log('Servidor rodando na porta 8000')
     console.log("------------------------------")

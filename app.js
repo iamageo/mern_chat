@@ -5,6 +5,9 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+//Setando rotas
+app.use(require('./routes/user'));
+
 //Setup erros handlers
 const errorHandlers = require("./handlers/errorHandler")
 app.use(errorHandlers.notFound);
