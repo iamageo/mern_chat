@@ -5,7 +5,7 @@ exports.createChatRoom = async(req, res) => {
     const {name} = req.body
 
     //verificar se  chat já existe
-    const nameRegex= /A-Za-z\s+$/;
+    const nameRegex= /^[A-Za-z\s]+$/;
     
     if(!nameRegex.test(name)) throw "Chatroom name can contain only alphbets"
 
