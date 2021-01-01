@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended: true}))
 //Setando rotas
 app.use("/user", require('./routes/user'));
 
-app.use("chatroom", require('./routes/chatroom'));
+app.use("/chatroom", require('./routes/chatroom'));
 
 
 //Setup erros handlers
