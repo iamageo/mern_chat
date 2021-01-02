@@ -34,16 +34,6 @@ const dashboard = () => {
                 Join
             </div>
         </div>
-
-        <div className="chatroom">
-            <div>
-                Happy newbie
-            </div>
-
-            <div className="join">
-                Join
-            </div>
-        </div>
     </div>
     
     </div>
