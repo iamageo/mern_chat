@@ -5,6 +5,9 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+//etup cors origin
+app.use(require("cors")())
+
 //Setando rotas
 app.use("/user", require('./routes/user'));
 
