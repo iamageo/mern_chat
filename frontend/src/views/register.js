@@ -1,9 +1,9 @@
 import React from 'react';
-import axios from 'axios'
-import makeToast from '../Toaster'
+import axios from 'axios';
+import makeToast from '../Toaster';
 
 
-const register = () => {
+const register = (props) => {
   const nameRef = React.createRef();
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
@@ -14,14 +14,25 @@ const register = () => {
       const password = passwordRef.current.value;
 
       axios.post("http://localhost:8000/user/register", {
-        name, email, password
-      }).then(response =>{
-        console.log(response.data)
+        name, 
+        email, 
+        password,
+
+      })
+      .then((response) => {
         makeToast("success", response.data.message);
-      }).catch(err => {
-        makeToast("success", err.response.data.message)
+        props.history.push("/login");
+      })
+      .catch((err) => {
+        if (
+          err &&
+          err.response &&
+          err.response.data &&
+          err.response.data.message
+        )
+          makeToast("error", err.response.data.message);
       });
-  }
+  };
   
   return (
     <div className="card">
