@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 const dashboard = () => {
 
-    const [chatrooms, setChatRooms] = useState([]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [chatrooms, setChatRooms] = React.useState([]);
 
     const getChatRooms = () => {
         axios.get("http://localhost:8000/chatroom", {
@@ -18,7 +19,8 @@ const dashboard = () => {
         });
     };
 
-    useEffect( () =>{
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    React.useEffect( () =>{
         getChatRooms()
         //eslint-disable-next-line
     }, [])
@@ -30,7 +32,7 @@ const dashboard = () => {
     <div className="cardBody">
     
     <div className="inputGroup">
-        <label htmlFor="chatRoom">Nome da Sala</label>
+        <label htmlFor="chatRoom"> Nome da Sala </label>
         <input type="text" name="chatRoom" id="chatRoom" placeholder="Dota 2 Chat"/>
     </div>
 
@@ -39,7 +41,7 @@ const dashboard = () => {
     <div className="chatrooms">
         
         {chatrooms.map((chatroom) => (
-
+        
         <div key={chatroom._id} className="chatroom">
             <div>{chatroom.name}</div>
             <Link to={"/chatroom/" + chatroom._id} >
