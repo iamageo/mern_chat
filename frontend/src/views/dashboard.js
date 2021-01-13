@@ -10,7 +10,7 @@ const dashboard = () => {
     const getChatRooms = () => {
         axios.get("http://localhost:8000/chatroom", {
             headers: {
-                Autrorization: "Bearer " + localStorage.getItem("token")
+                Authorization: "Bearer " + localStorage.getItem("token")
             }
         }).then(response => {
             setChatRooms(response.data);

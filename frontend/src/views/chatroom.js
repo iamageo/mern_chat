@@ -9,7 +9,7 @@ function chatroom({match}) {
       query: {
           token: localStorage.getItem("token"),
       },
-  })
+  });
 
   return (
       <div>
